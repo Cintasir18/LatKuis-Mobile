@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/animals_data.dart';
 import 'animal_detail_page.dart';
 import '../widgets/animal_card.dart';
+import 'login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,6 +12,19 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Animals List'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+              );
+            },
+          ),
+        ]
       ),
 
       body: GridView.builder(

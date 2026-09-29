@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Animals App',
       theme: ThemeData(
         primarySwatch: Colors.red,
+        scaffoldBackgroundColor: const Color(0xFFF6F1E7),
       ),
       home: const LoginPage(),
     );
