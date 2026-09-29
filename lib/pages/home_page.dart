@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import '../data/animals_data.dart';
+import 'animal_detail_page.dart';
+import '../widgets/animal_card.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Animals List'),
+      ),
+
+      body: GridView.builder(
+        padding: const EdgeInsets.all(12),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 0.7,
+        ),
+
+        itemCount: dummyAnimals.length,
+
+        itemBuilder: (context, index) {
+          final animal = dummyAnimals[index];
+
+          return AnimalCard(
+            animal: animal,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AnimalDetailPage(
+                    animal: animal,
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
